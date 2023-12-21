@@ -32,10 +32,10 @@ const Navbar = (props: Props) => {
 
           </div>
           <Button className="bg-rose-500 hover:bg-rose-700 text-white">
-            Sign In
+            <Link href={"/sign-in"}>Sign In</Link>
           </Button>
           <Button className="bg-rose-500 hover:bg-rose-700 text-white">
-            Sign Up
+            <Link href={"/sign-up"}>Sign Up</Link>
           </Button>
         </Card> 
     </>

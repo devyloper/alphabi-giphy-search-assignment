@@ -25,6 +25,7 @@ function GifGallery({}: Props) {
   return (
     <div className='h-[70vh] w-[876px] bg-white m-4'>
         <Card className=' h-[100%] w-[100%]'>
+          <h1>Trending</h1>
         {/* {trendingGIFs.map((gif) => (
           <Image key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} width={100} height={50}/>
         ))} */}
