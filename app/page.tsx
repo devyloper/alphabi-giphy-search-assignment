@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center h-[100vh] p-7 bg-slate-50">
+    <main className="flex flex-col items-center h-[100%] p-7 bg-slate-50">
       <Navbar />
       <GifGallery />
       <Pagination />

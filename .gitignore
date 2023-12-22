@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Giphy API key
+GIPHY_API_KEY = 'mE2PsRiDuWO7PbTPmZATQvv6qBN5TFdw'

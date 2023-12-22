@@ -5,6 +5,7 @@ export interface GiphyGif {
   id: string;
   title: string;
   images: {
+    downsized: any;
     fixed_height: {
       url: string;
     };

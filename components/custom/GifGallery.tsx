@@ -1,37 +1,44 @@
 'use client'
 import React from 'react'
 import { Card } from '@/components/ui/card'
-import { GiphyGif, getTrendingGIFs } from '@/lib/giphyapi'
+import { GiphyGif } from '@/lib/giphyapi'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 type Props = {}
+import axios from 'axios';
+const getTrendingGIFs = async () => {
+  const response = await axios.get('https://api.giphy.com/v1/gifs/trending', {
+    params: {
+      api_key: 'GIPHY_API_KEY',
+      limit: 12
+    }
+  });
+
+  return response.data.data;
+};
 
 
-
-function GifGallery({}: Props) {
-  const [trendingGIFs, setTrendingGIFs] = useState<GiphyGif[]>([]);
-
+export const GifGallery: React.FC<Props> = () => {
+  const [gifs, setGifs] = useState<GiphyGif[]>([])
   useEffect(() => {
-    const fetchTrendingGIFs = async () => {
-      const gifs = await getTrendingGIFs();
-      setTrendingGIFs(gifs);
-    };
-
-    fetchTrendingGIFs();
-  }, []);
-  
-
-
+    getTrendingGIFs().then((gifs) => setGifs(gifs))
+  }, [])
   return (
-    <div className='h-[70vh] w-[876px] bg-white m-4'>
-        <Card className=' h-[100%] w-[100%]'>
-          <h1>Trending</h1>
-        {/* {trendingGIFs.map((gif) => (
-          <Image key={gif.id} src={gif.images.fixed_height.url} alt={gif.title} width={100} height={50}/>
-        ))} */}
+    <div className="h-[100%] w-[876px] m-4 ">
+      <Card className='m-2 rounded-md flex flex-wrap justify-center'>
+      {gifs.map((gif) => (
+          <img key={gif.id}
+            src={gif.images.downsized.url}
+            alt={gif.title}
+            width={100}
+            height={50}
+            className='m-2 rounded-md w-[12rem]'
+          ></img>
+      ))}
         </Card>
     </div>
   )
 }
+
 
 export default GifGallery
