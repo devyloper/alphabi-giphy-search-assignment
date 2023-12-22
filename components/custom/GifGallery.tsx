@@ -9,7 +9,7 @@ import axios from 'axios';
 const getTrendingGIFs = async () => {
   const response = await axios.get('https://api.giphy.com/v1/gifs/trending', {
     params: {
-      api_key: 'GIPHY_API_KEY',
+      api_key: 'GlVGYHkr3WSBnllca54iNt0yFbjz7L65',
       limit: 12
     }
   });
